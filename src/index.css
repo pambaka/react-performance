@@ -1,0 +1,25 @@
+:root {
+  --color-bg: #778899;
+  --color-card-bg: #647485;
+  --color-card-title: tomato;
+  --color-card-text: #e7e7e7;
+  --color-card-text-accent: #d4e0d6;
+
+  font-family: 'Playpen Sans', cursive;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+p,
+h2,
+body {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
