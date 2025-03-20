@@ -5,7 +5,9 @@ import { ReactNode } from 'react';
 const CountryCard = ({ country }: { country: Country }): ReactNode => {
   return (
     <div className={styles.country}>
-      <h2>{country.name.common}</h2>
+      <h2>
+        {country.name.common} <img src={country.flags.svg}></img>
+      </h2>
       <section>
         <div>
           <p>region:</p>
@@ -14,10 +16,6 @@ const CountryCard = ({ country }: { country: Country }): ReactNode => {
         <div>
           <p>population:</p>
           <p>{country.population}</p>
-        </div>
-        <div>
-          <p>flag:</p>
-          <p>{country.flag}</p>
         </div>
       </section>
     </div>

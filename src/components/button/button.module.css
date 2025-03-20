@@ -1,0 +1,21 @@
+.button {
+  width: 100%;
+  height: calc(100% - 5px);
+  border: 1px var(--color-card-bg);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+
+  background-color: var(--color-card-text-accent);
+  color: var(--color-text-dark);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--color-accent-hover);
+  }
+}
+
+.button span {
+  font-size: 0.8rem;
+}

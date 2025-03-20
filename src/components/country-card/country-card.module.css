@@ -8,7 +8,7 @@
   border: 1px solid var(--color-card-text-accent);
   border-radius: 5px;
   background-color: var(--color-card-bg);
-  color: var(--color-card-text);
+  color: var(--color-text-light);
 }
 
 .country h2 {
@@ -26,4 +26,10 @@
 .country div p:first-of-type {
   font-family: Inter, san-serif;
   color: var(--color-card-text-accent);
+}
+
+.country img {
+  width: auto;
+  height: 16px;
+  vertical-align: middle;
 }

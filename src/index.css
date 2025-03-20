@@ -1,9 +1,11 @@
 :root {
   --color-bg: #778899;
   --color-card-bg: #647485;
-  --color-card-title: tomato;
-  --color-card-text: #e7e7e7;
+  --color-text-light: #e7e7e7;
+  --color-text-dark: #3a434d;
   --color-card-text-accent: #d4e0d6;
+  --color-accent-hover: #bdd0c0;
+  --dropdawn-gap: 4px;
 
   font-family: 'Playpen Sans', cursive;
   line-height: 1.5;
