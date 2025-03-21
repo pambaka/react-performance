@@ -1,25 +1,22 @@
 import { Country } from '@/types';
 import { ReactNode } from 'react';
 import DropdownMenu from '../dropdown-menu';
-import { FILTER_ALL } from '@/consts';
+import { REGION_ALL } from '@/consts';
 
 const FilteringMenu = ({
+  regions,
   countries,
   updateCountries,
 }: {
+  regions: string[];
   countries: Country[];
   updateCountries: (countries: Country[]) => void;
 }): ReactNode => {
-  const regions = Array.from(
-    new Set(countries.map((country) => country.region))
-  );
-  regions.push(FILTER_ALL);
-
   const filterCountries = (event: React.MouseEvent<HTMLDivElement>) => {
     const option = event.currentTarget;
 
     if (option instanceof HTMLDivElement && option.textContent) {
-      if (option.textContent === 'all') {
+      if (option.textContent === REGION_ALL) {
         updateCountries(countries);
         return;
       }

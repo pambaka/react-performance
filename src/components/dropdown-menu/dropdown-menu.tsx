@@ -1,7 +1,7 @@
 import styles from './dropdown-menu.module.css';
 import Button from '../button';
 import { ReactNode, useState } from 'react';
-import { FILTER_ALL } from '@/consts';
+import { REGION_ALL } from '@/consts';
 
 const DropdownMenu = ({
   buttonText,
@@ -18,7 +18,7 @@ const DropdownMenu = ({
     const option = event.currentTarget;
 
     if (option instanceof HTMLDivElement && option.textContent) {
-      const text = option.textContent === FILTER_ALL ? '' : option.textContent;
+      const text = option.textContent === REGION_ALL ? '' : option.textContent;
       setOptionText(text);
     }
   };
