@@ -8,13 +8,9 @@ const content = ['Name asc', 'Name desc', 'Population asc', 'Population desc'];
 const SortingMenu = ({
   countries,
   updateCountries,
-  initialCountries,
-  updateInitialCountries,
 }: {
   countries: Country[];
   updateCountries: (countries: Country[]) => void;
-  initialCountries: Country[];
-  updateInitialCountries: (countries: Country[]) => void;
 }): ReactNode => {
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const option = event.currentTarget;
@@ -25,9 +21,6 @@ const SortingMenu = ({
       const direction = text.split(' ')[1] as SortingDirection;
 
       updateCountries(getSortedCountries(key, direction, countries));
-      updateInitialCountries(
-        getSortedCountries(key, direction, initialCountries)
-      );
     }
   };
 
