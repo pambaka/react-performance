@@ -2,11 +2,25 @@ import styles from './country-card.module.css';
 import { Country } from '@/types';
 import { ReactNode } from 'react';
 
-const CountryCard = ({ country }: { country: Country }): ReactNode => {
+const CountryCard = ({
+  country,
+  isVisited,
+  onClick,
+}: {
+  country: Country;
+  isVisited: boolean;
+  onClick: () => void;
+}): ReactNode => {
   return (
-    <div className={styles.country}>
+    <div
+      className={
+        isVisited ? `${styles.country} ${styles.visited}` : styles.country
+      }
+      onClick={onClick}
+    >
       <h2>
-        {country.name.common} <img src={country.flags.svg}></img>
+        {country.name.common}
+        <img src={country.flags.svg}></img>
       </h2>
       <section>
         <div>

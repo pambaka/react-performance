@@ -9,6 +9,7 @@
   border-radius: 5px;
   background-color: var(--color-card-bg);
   color: var(--color-text-light);
+  cursor: pointer;
 }
 
 .country h2 {
@@ -32,4 +33,9 @@
   width: auto;
   height: 16px;
   vertical-align: middle;
+  margin-left: 10px;
+}
+
+.visited {
+  background-color: var(--color-card-bg-visited);
 }
