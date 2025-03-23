@@ -1,10 +1,9 @@
 import { Country, CountryKey, SortingDirection } from '@/types';
 
-const getSortedCountries = (
-  key: CountryKey,
-  direction: SortingDirection,
-  countries: Country[]
-) => {
+const getSortedCountries = (sorting: string, countries: Country[]) => {
+  const key = sorting.split(' ')[0].toLowerCase() as CountryKey;
+  const direction = sorting.split(' ')[1] as SortingDirection;
+
   const sortedCounries = [...countries];
 
   sortedCounries.sort((a, b) => {

@@ -4,6 +4,7 @@ import CountriesList from '@/components/countries-list';
 import FilteringMenu from '@/components/filtering-menu';
 import SearchBar from '@/components/search-bar';
 import SortingMenu from '@/components/sorting-menu';
+import getSortedCountries from '@/components/sorting-menu/get-sorted-countries';
 import { REGION_ALL } from '@/consts';
 import { Country } from '@/types';
 import getRegions from '@/utils/get-regions';
@@ -14,6 +15,7 @@ const HomePage = (): ReactNode => {
   const [regions, setRegions] = useState<string[]>([]);
   const [selectedRegion, setSelectedRegion] = useState<string>(REGION_ALL);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [sorting, setSorting] = useState('');
 
   const updateStates = async () => {
     const fetchedCountries = await fetchCountries();
@@ -30,12 +32,12 @@ const HomePage = (): ReactNode => {
   return (
     <main className={styles.main}>
       <section>
-        <SortingMenu countries={countries} updateCountries={setCountries} />
+        <SortingMenu updateSorting={setSorting} />
         <FilteringMenu regions={regions} updateRegion={setSelectedRegion} />
         <SearchBar updateSearchTerm={setSearchTerm} />
       </section>
       <CountriesList
-        countries={countries
+        countries={getSortedCountries(sorting, countries)
           .filter((country) => {
             if (selectedRegion === REGION_ALL) return true;
             return country.region === selectedRegion;

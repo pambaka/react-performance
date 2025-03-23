@@ -8,15 +8,14 @@ const CountriesList = ({ countries }: { countries: Country[] }) => {
 
   return (
     <section className={styles['countries-list']}>
-      {countries &&
-        countries.map((country, index) => (
-          <CountryCard
-            country={country}
-            key={`${index}${country.name.common}`}
-            isVisited={visitedCountries.includes(country.name.common)}
-            onClick={() => updateVisitedCountries(country.name.common)}
-          />
-        ))}
+      {countries.map((country) => (
+        <CountryCard
+          country={country}
+          key={`${country.name.common}`}
+          isVisited={visitedCountries.includes(country.name.common)}
+          onClick={() => updateVisitedCountries(country.name.common)}
+        />
+      ))}
     </section>
   );
 };
