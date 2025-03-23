@@ -1,6 +1,6 @@
 import styles from './country-card.module.css';
 import { Country } from '@/types';
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 
 const CountryCard = ({
   country,
@@ -36,4 +36,8 @@ const CountryCard = ({
   );
 };
 
-export default CountryCard;
+const MemoCountryCard = memo(CountryCard, (prevProps, nextProps) => {
+  return prevProps.isVisited === nextProps.isVisited;
+});
+
+export default MemoCountryCard;

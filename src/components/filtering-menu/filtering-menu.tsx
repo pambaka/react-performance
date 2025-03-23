@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
 import DropdownMenu from '../dropdown-menu';
 
 const FilteringMenu = ({
@@ -8,13 +8,13 @@ const FilteringMenu = ({
   regions: string[];
   updateRegion: (filter: string) => void;
 }): ReactNode => {
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     const option = event.currentTarget;
 
     if (option instanceof HTMLDivElement && option.textContent) {
       updateRegion(option.textContent);
     }
-  };
+  }, []);
 
   return (
     <DropdownMenu buttonText="Filter" content={regions} onClick={handleClick} />

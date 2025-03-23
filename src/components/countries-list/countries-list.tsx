@@ -1,6 +1,6 @@
 import styles from './countries-list.module.css';
 import { Country } from '@/types';
-import CountryCard from '../country-card';
+import MemoCountryCard from '../country-card';
 import useLocalStorage from '@/hooks/use-local-storage';
 
 const CountriesList = ({ countries }: { countries: Country[] }) => {
@@ -9,7 +9,7 @@ const CountriesList = ({ countries }: { countries: Country[] }) => {
   return (
     <section className={styles['countries-list']}>
       {countries.map((country) => (
-        <CountryCard
+        <MemoCountryCard
           country={country}
           key={`${country.name.common}`}
           isVisited={visitedCountries.includes(country.name.common)}

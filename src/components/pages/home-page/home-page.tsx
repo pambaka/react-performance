@@ -8,7 +8,7 @@ import getSortedCountries from '@/components/sorting-menu/get-sorted-countries';
 import { REGION_ALL } from '@/consts';
 import { Country } from '@/types';
 import getRegions from '@/utils/get-regions';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 
 const HomePage = (): ReactNode => {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -29,6 +29,26 @@ const HomePage = (): ReactNode => {
     updateStates();
   }, []);
 
+  const sortedCountries = useMemo(
+    () => getSortedCountries(sorting, countries),
+    [countries, sorting]
+  );
+
+  const filteredCountries = useMemo(() => {
+    return sortedCountries.filter((country) => {
+      if (selectedRegion === REGION_ALL) return true;
+      return country.region === selectedRegion;
+    });
+  }, [selectedRegion, sortedCountries]);
+
+  const searchedCountries = useMemo(
+    () =>
+      filteredCountries.filter((country) =>
+        country.name.common.toLowerCase().includes(searchTerm)
+      ),
+    [filteredCountries, searchTerm]
+  );
+
   return (
     <main className={styles.main}>
       <section>
@@ -36,16 +56,7 @@ const HomePage = (): ReactNode => {
         <FilteringMenu regions={regions} updateRegion={setSelectedRegion} />
         <SearchBar updateSearchTerm={setSearchTerm} />
       </section>
-      <CountriesList
-        countries={getSortedCountries(sorting, countries)
-          .filter((country) => {
-            if (selectedRegion === REGION_ALL) return true;
-            return country.region === selectedRegion;
-          })
-          .filter((country) =>
-            country.name.common.toLowerCase().includes(searchTerm)
-          )}
-      />
+      <CountriesList countries={searchedCountries} />
     </main>
   );
 };

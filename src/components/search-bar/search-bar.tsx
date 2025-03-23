@@ -1,5 +1,5 @@
 import styles from './search-bar.module.css';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 
 const SearchBar = ({
   updateSearchTerm,
@@ -13,9 +13,9 @@ const SearchBar = ({
       setInputValue(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     updateSearchTerm(inputValue.toLowerCase());
-  };
+  }, [inputValue]);
 
   return (
     <div className={styles['search-bar']}>
