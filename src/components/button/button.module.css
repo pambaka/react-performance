@@ -1,0 +1,9 @@
+.button {
+  width: 100%;
+  height: calc(100% - 5px);
+  border-radius: 5px;
+}
+
+.button span {
+  font-size: 0.8rem;
+}

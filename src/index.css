@@ -1,0 +1,44 @@
+:root {
+  --color-bg: #778899;
+  --color-card-bg: #647485;
+  --color-card-bg-visited: #53606f;
+  --color-text-dark: #3a434d;
+  --color-accent-light: #f6f9f7;
+  --color-accent: #d4e0d6;
+  --color-accent-hover: #bdd0c0;
+  --dropdawn-gap: 4px;
+
+  font-family: 'Playpen Sans', cursive;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+p,
+h2,
+body {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text-dark);
+}
+
+button {
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  background-color: var(--color-accent);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.2rem;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--color-accent-hover);
+  }
+}
